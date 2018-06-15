@@ -5,6 +5,11 @@ var mongoose = require('mongoose');
 var Book = require('./models/book.model');
 var appRoutes = require('./routes/app');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
+
 var db = 'mongodb://localhost/node-helloworld';
 mongoose.connect(db);
 
