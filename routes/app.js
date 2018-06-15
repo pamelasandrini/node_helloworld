@@ -40,7 +40,7 @@ router.get('/books/:id', function(req, res) {
       });
   });
 
-  //one method to do post
+//one method to do post
 router.post('/book', function(req, res){
     var newBook = new Book();
 
@@ -68,6 +68,43 @@ router.post('/book2', function(req, res){
             res.send(result);            
         }
     })
+});
+
+router.put('/book/:id', function(req, res){
+
+    console.log('updating a book');
+
+    Book.findOneAndUpdate({
+        _id: req.params.id
+    },{
+        $set: { title: req.body.title}
+    },{
+        upsert: true
+    }, function(err, result){
+        if(err){
+            console.log('error occured while updating book');
+        }else{
+            console.log(result);
+            res.send(result);
+        }
+    });
+
+});
+
+router.delete('/book/:id', function(req, res){
+    console.log('removing a book');
+
+    Book.findOneAndRemove({
+        _id: req.params.id
+    }, function(err, result){
+        
+        if(err){
+            res.send('error occured while removing book');
+        }else{
+            console.log(result);
+            res.send(result);
+        }
+    });
 });
 
 module.exports = router;

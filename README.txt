@@ -1,17 +1,32 @@
 # node_helloworld
 Node app that uses MongoDB connection
 
-Run mongoDB as: C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe
 Run application as: node app
 
 The main URL to access the project is:
-http://http://localhost:3200/
+http://localhost:3200/
+
+List books:
+http://localhost:3200/books
+
+List one book:
+http://localhost:3200/books/id
+
+Add a book:
+Use post method on http://localhost:3200/book or http://localhost:3200/book2
+
+Update a book:
+Use put method on http://localhost:3200/book/id
+
+Remove a book:
+Use delete method on http://localhost:3200/book/id
 
 
-
-Mongo command utils:
-add records using the node_helloworld\resources\insertBooks.txt file
-acess db: use db_name
+**********************
+Mongo utils:
+run mongoDB : C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe
+add records using the commands on node_helloworld\resources\insertBooks.txt file
+to access db: use db_name
 find records: db.users.find()
 find records in json format: db.users.find().pretty()
 
